@@ -3,7 +3,7 @@ const Player = require('../src/player');
 
 test("checking for 52 cards", function(){
    //Arrange 
-    const deck = new Deck (52);
+    const deck = new Deck ();
     //Act
     const hasCards = deck.cards
     //Assert
