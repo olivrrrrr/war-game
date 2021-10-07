@@ -13,7 +13,7 @@ Player.prototype.numberOfCardsInPlayerDeck = function(){
 
 Player.prototype.randomCard = function(){
     const deck = new Deck().latestDeck()
-    return deck[Math.floor(Math.random() * 0)].value
+    return deck[Math.floor(Math.random() * 12)].value
 
 }
 
@@ -36,11 +36,11 @@ Player.prototype.winner = function(){
 
 // console.log(Math.floor(Math.random()*52))
 
-const Darania = new Player('Darania');
-const Oliver = new Player('Oliver')
+const player1 = new Player('Player1');
+const player2 = new Player('Player2')
 
-console.log(Darania.randomCard())
-console.log(Oliver.randomCard())
+//console.log(player1.randomCard())
+//console.log(player2.randomCard())
 
 
 // for(let i=0; i <= 25; i++){
@@ -71,4 +71,31 @@ console.log(Oliver.randomCard())
 
 // console.log(deck.cards)
 
-module.exports = Player; 
+
+Player.prototype.winner = function(player1, player2){
+    const player1Card = player1.randomCard();
+    const player2Card = player2.randomCard();
+    
+    console.log("Player 1's card is " + player1Card);
+    console.log("Player 2's card is " + player2Card);
+
+    if(player1Card === player2Card){
+       return 'Draw'
+   } 
+   if(player1Card > player2Card){
+       return `${player1.name} wins the round!`;
+       
+   }
+   if (player1Card < player2Card){
+    return `${player2.name} wins the round!`;
+    }
+}
+//const Darania = new Player('Darania');
+//const Oliver = new Player('Oliver')
+
+//console.log(Darania.randomCard())
+//console.log(Oliver.randomCard())
+
+console.log(player1.winner(player1, player2));
+
+module.exports = Player;
